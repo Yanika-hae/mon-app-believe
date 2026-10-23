@@ -1,0 +1,227 @@
+[
+ [
+  "V1 lecture sans la référence",
+  "src/Home.tsx",
+  "const readVerse = (v: Verse) => v[1] + ' ' + refSpoken(v[0])",
+  "const readVerse = (v: Verse) => v[1]",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V2 retour au début après le dernier verset",
+  "src/Home.tsx",
+  "i: (c + 1) % vlist(s).length }",
+  "i: (c + 1) % 1000 }",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V3 listes Femme et Homme inversées",
+  "src/lib.ts",
+  "(s.profile.g === 'F' ? VF : VM)",
+  "(s.profile.g === 'F' ? VM : VF)",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V4 traduction toujours Segond",
+  "src/verses.ts",
+  "TR[v[2] ?? 'LSG']",
+  "TR.LSG",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V5 fenêtre du verset : jour non mémorisé",
+  "src/App.tsx",
+  "const closeVerse = () => { setVm(false); upd(s => { s.ui.verseDay = today() }) }",
+  "const closeVerse = () => { setVm(false) }",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V6 fenêtre rouverte à chaque retour au premier plan",
+  "src/App.tsx",
+  "if (s.ui.onboard && s.ui.verseDay !== today() && !lockedRef.current)",
+  "if (s.ui.onboard && !lockedRef.current)",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "V7 verset après déverrouillage supprimé",
+  "src/App.tsx",
+  "<Lock onUnlock={() => { lock(false); askVerse() }}",
+  "<Lock onUnlock={() => { lock(false) }}",
+  [
+   "src/verses.test.tsx"
+  ]
+ ],
+ [
+  "O1 accueil guidé jamais marqué terminé",
+  "src/App.tsx",
+  "onFinish={() => { upd(s => { s.ui.onboard = true }); askVerse() }}",
+  "onFinish={() => { askVerse() }}",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "O2 « Passer » sans effet",
+  "src/Onboarding.tsx",
+  "const skip = <button className=\"btn alt\" onClick={onFinish}>",
+  "const skip = <button className=\"btn alt\" onClick={() => undefined}>",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "O3 profil enregistré : accueil guidé repris",
+  "src/lib.ts",
+  "if (o.v === 1 || V.isObj(out.profile))",
+  "if (o.v === 1)",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "O4 effacement : accueil guidé immédiat",
+  "src/App.tsx",
+  "const n = DEF(); n.ui.onboard = true //",
+  "const n = DEF(); //",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "O5 titre d’étape sans focus",
+  "src/Onboarding.tsx",
+  "useEffect(() => { document.getElementById('onb-t')?.focus() }, [st])",
+  "",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "O6 retour de la dernière étape cassé",
+  "src/Onboarding.tsx",
+  "<button className=\"btn alt\" onClick={() => go(1)}>Retour</button></div>\n        </>\n      )}\n    </div>",
+  "<button className=\"btn alt\" onClick={() => go(0)}>Retour</button></div>\n        </>\n      )}\n    </div>",
+  [
+   "src/onboarding.test.tsx"
+  ]
+ ],
+ [
+  "G1 balayage démarré dans un champ",
+  "src/ui.tsx",
+  "const NOSWIPE = 'input,textarea,select,canvas",
+  "const NOSWIPE = 'canvas",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G2 seuil de distance supprimé",
+  "src/util.ts",
+  "Math.abs(dx) < 70 ||",
+  "Math.abs(dx) < 0 ||",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G3 vibration malgré mouvement réduit",
+  "src/ui.tsx",
+  "if (S.settings.haptics && !reduced(S))",
+  "if (S.settings.haptics)",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G4 will-change jamais retiré par la fin d’animation",
+  "src/App.tsx",
+  "onAnimationEnd={e => { if (e.target === e.currentTarget) setWc(false) }}",
+  "onAnimationEnd={() => undefined}",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G5 will-change retiré par un élément intérieur",
+  "src/App.tsx",
+  "if (e.target === e.currentTarget) setWc(false)",
+  "setWc(false)",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G6 repli de will-change supprimé",
+  "src/App.tsx",
+  "const t = setTimeout(() => setWc(false), 800)",
+  "const t = setTimeout(() => undefined, 800)",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G7 focus non rendu à la fermeture de la feuille",
+  "src/ui.tsx",
+  "return () => { document.removeEventListener('keydown', key); prev?.focus?.() }",
+  "return () => { document.removeEventListener('keydown', key) }",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G8 ordre des sections principales",
+  "src/App.tsx",
+  "const MAIN = ['4', '6', '3', 'menu']",
+  "const MAIN = ['4', '3', '6', 'menu']",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G9 bulle IA aussi sur la page IA",
+  "src/App.tsx",
+  "{a !== '3' && <a className=\"fab\"",
+  "{<a className=\"fab\"",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G10 sens de l’animation inversé",
+  "src/App.tsx",
+  "Math.sign(b - a) : 0)",
+  "-Math.sign(b - a) : 0)",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "G11 actions rapides : eau sans accord",
+  "src/App.tsx",
+  "{S.consents.health ? <button onClick={water}>",
+  "{true ? <button onClick={water}>",
+  [
+   "src/gestures.test.tsx"
+  ]
+ ],
+ [
+  "V9 une référence de verset est altérée",
+  "src/verses.ts",
+  "Proverbes 31:25",
+  "Proverbes 31:26x",
+  [
+   "src/verses.test.tsx"
+  ]
+ ]
+]

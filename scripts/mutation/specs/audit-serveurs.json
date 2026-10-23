@@ -1,0 +1,38 @@
+[
+ [
+  "K1 compteur du texte sous le nom des images",
+  "api/ai.ts",
+  "const ROUTE = 'ai', MAX_HITS",
+  "const ROUTE = 'img', MAX_HITS",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "K2 compteur des livres sous le nom du texte",
+  "api/ext.ts",
+  "const ROUTE = 'ext', MAX_HITS",
+  "const ROUTE = 'ai', MAX_HITS",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "K3 compteur YouTube sous le nom des livres",
+  "api/yt.ts",
+  "const ROUTE = 'yt', MAX_HITS",
+  "const ROUTE = 'ext', MAX_HITS",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "K4 compteur des images sans nom de route",
+  "api/img.ts",
+  "const key = 'believe:' + ROUTE + ':' + new Date()",
+  "const key = 'believe:' + new Date()",
+  [
+   "@audit"
+  ]
+ ]
+]

@@ -1,0 +1,272 @@
+[
+ [
+  "H1 accord ignoré",
+  "src/Reminders.tsx",
+  "      if (!s.consents.notif) return\n      const list",
+  "      const list",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H2 doublons non filtrés",
+  "src/Reminders.tsx",
+  ".filter(t => !seen.current.has(keyOf(t.id, t.due)))",
+  "",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H3 PIN : bannière sous l’écran verrouillé",
+  "src/Reminders.tsx",
+  "const front = document.visibilityState === 'visible' && !lref.current",
+  "const front = document.visibilityState === 'visible'",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H4 visibilité ignorée",
+  "src/Reminders.tsx",
+  "const front = document.visibilityState === 'visible' && !lref.current",
+  "const front = !lref.current",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H5 titre jamais masqué",
+  "src/Reminders.tsx",
+  "const masked = s.discret || lref.current",
+  "const masked = false",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H6 masqué seulement en discret",
+  "src/Reminders.tsx",
+  "const masked = s.discret || lref.current",
+  "const masked = s.discret",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H7 masqué seulement sous PIN",
+  "src/Reminders.tsx",
+  "const masked = s.discret || lref.current",
+  "const masked = lref.current",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H8 échec de notification non rejoué",
+  "src/Reminders.tsx",
+  "list.forEach((t, i) => { if (!oks[i]) seen.current.delete(keyOf(t.id, t.due)) })",
+  "",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H9 marqué même si non affiché",
+  "src/Reminders.tsx",
+  "const done = list.filter((_, i) => oks[i]); if (done.length) mark(done)",
+  "mark(list)",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H10 pas de contrôle toutes les 30 s",
+  "src/Reminders.tsx",
+  "const id = setInterval(run, CHECK_MS)",
+  "const id = setInterval(() => undefined, CHECK_MS)",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H11 pas de contrôle au retour",
+  "src/Reminders.tsx",
+  "document.addEventListener('visibilitychange', run)\n    return",
+  "return",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H12 réglage du délai sans effet immédiat",
+  "src/Reminders.tsx",
+  "[S.tasks, S.consents.notif, S.settings.remind, S.discret, locked]",
+  "[S.consents.notif, S.discret, locked]",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H13 rappels affichés après retrait de l’accord",
+  "src/Reminders.tsx",
+  "return { items: S.consents.notif ? items : [], clear",
+  "return { items, clear",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H14 zone annoncée absente",
+  "src/Reminders.tsx",
+  "<div role=\"status\" aria-live=\"polite\">\n      {items.length > 0 &&",
+  "<div>\n      {items.length > 0 &&",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H15 titre toujours affiché dans la bannière",
+  "src/Reminders.tsx",
+  "{discret ? 'Une tâche arrive à échéance' : i.t}",
+  "{i.t}",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H16 fermeture sans effet",
+  "src/Reminders.tsx",
+  "<button className=\"chip\" onClick={onClose}>Fermer les rappels</button>",
+  "<button className=\"chip\" onClick={() => undefined}>Fermer les rappels</button>",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H17 autorisation toujours redemandée",
+  "src/Reminders.tsx",
+  "const p = permission() === 'default' ? await askPermission() : permission()",
+  "const p = await askPermission()",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H18 accord non enregistré",
+  "src/Reminders.tsx",
+  "setPerm(p); upd(s => { s.consents.notif = true }, ENABLED[p])",
+  "setPerm(p); upd(() => undefined, ENABLED[p])",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H19 désactivation sans effet",
+  "src/Reminders.tsx",
+  "upd(s => { s.consents.notif = false }, 'Rappels désactivés.",
+  "upd(() => undefined, 'Rappels désactivés.",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H20 autorisation du navigateur non relue",
+  "src/Reminders.tsx",
+  "const f = () => setPerm(permission())\n    addEventListener('focus', f); document.addEventListener('visibilitychange', f)",
+  "const f = () => undefined\n    addEventListener('focus', f); document.addEventListener('visibilitychange', f)",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H21 test de notification toujours « envoyé »",
+  "src/Reminders.tsx",
+  "setM(ok ? { t: 'Notification de test envoyée.",
+  "setM(true ? { t: 'Notification de test envoyée.",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H22 délai réglé sans enregistrement",
+  "src/Reminders.tsx",
+  "upd(s => { s.settings.remind = v }, 'Rappel réglé : '",
+  "upd(() => undefined, 'Rappel réglé : '",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "H23 libellé du refus",
+  "src/Reminders.tsx",
+  "denied: 'Rappels activés dans l’application. Le navigateur a refusé",
+  "denied: 'Rappels activés. Le navigateur a refusé",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "P1 tâche créée sonne aussitôt",
+  "src/Pro.tsx",
+  "const r = startsReminded(due || null, Date.now(), S.settings.remind) ? due : undefined",
+  "const r = undefined",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "P2 rappel prévu non annoncé",
+  "src/Pro.tsx",
+  "return at > now ? ', rappel prévu ' + when(at, now) : ''",
+  "return ''",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "P3 rappel donné non annoncé",
+  "src/Pro.tsx",
+  "if (x.r === x.due) return ', rappel donné'",
+  "if (x.r === x.due) return ''",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "P4 texte de rappel même si désactivé",
+  "src/Pro.tsx",
+  "if (!S.consents.notif || x.done || !x.due) return ''",
+  "if (x.done || !x.due) return ''",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "A1 PIN non transmis au détecteur",
+  "src/App.tsx",
+  "const rem = useReminders(S, upd, locked)",
+  "const rem = useReminders(S, upd, false)",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "A2 bannière absente",
+  "src/App.tsx",
+  "      <RemindBanner items={rem.items} discret={S.discret} onClose={rem.clear} />\n",
+  "",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "D1 texte de l’accord",
+  "src/DataPage.tsx",
+  "Rappels de tâches avant leur échéance, pendant que l’application est ouverte : dans l’application, et par notification du système si le navigateur l’autorise.",
+  "Rappels de tâches.",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ]
+]

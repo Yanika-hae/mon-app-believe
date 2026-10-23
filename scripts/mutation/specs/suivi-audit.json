@@ -1,0 +1,272 @@
+[
+ [
+  "S1 cycle minimal 14 jours",
+  "src/suivi.ts",
+  "export const MIN_CYCLE = 15, MAX_CYCLE = 60",
+  "export const MIN_CYCLE = 14, MAX_CYCLE = 60",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S2 cycle maximal 61 jours",
+  "src/suivi.ts",
+  "export const MIN_CYCLE = 15, MAX_CYCLE = 60",
+  "export const MIN_CYCLE = 15, MAX_CYCLE = 61",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S3 durée par défaut 30",
+  "src/suivi.ts",
+  "const DEFAULT_CYCLE = 28, RECENT = 6",
+  "const DEFAULT_CYCLE = 30, RECENT = 6",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S4 sept derniers écarts",
+  "src/suivi.ts",
+  "const DEFAULT_CYCLE = 28, RECENT = 6",
+  "const DEFAULT_CYCLE = 28, RECENT = 7",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S5 règles jusqu'au jour 4",
+  "src/suivi.ts",
+  "phase = n <= 5 ? 'regles'",
+  "phase = n <= 4 ? 'regles'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S6 ovulation ±2",
+  "src/suivi.ts",
+  "Math.abs(n - ov) <= 1",
+  "Math.abs(n - ov) <= 2",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S7 lutéale jusqu'à len-1",
+  "src/suivi.ts",
+  "n <= len ? 'luteale'",
+  "n < len ? 'luteale'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S8 jour du cycle jusqu'à 61",
+  "src/suivi.ts",
+  "raw <= MAX_CYCLE ? raw : null",
+  "raw <= MAX_CYCLE + 1 ? raw : null",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S9 débuts futurs pris en compte",
+  "src/suivi.ts",
+  ".filter(d => d <= day).sort()",
+  ".sort()",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S10 débuts non triés",
+  "src/suivi.ts",
+  ".filter(d => d <= day).sort()",
+  ".filter(d => d <= day)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S11 six premiers écarts",
+  "src/suivi.ts",
+  ".slice(-RECENT)",
+  ".slice(0, RECENT)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S12 moyenne arrondie vers le bas",
+  "src/suivi.ts",
+  "Math.round(gaps.reduce((a, b) => a + b, 0) / gaps.length)",
+  "Math.floor(gaps.reduce((a, b) => a + b, 0) / gaps.length)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S13 règles futures acceptées",
+  "src/suivi.ts",
+  "if (d > day) return { ok: false",
+  "if (false) return { ok: false",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S14 limite d'âge +1",
+  "src/suivi.ts",
+  "if (diffDays(d, day) > MAX_AGE)",
+  "if (diffDays(d, day) > MAX_AGE + 1)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S15 doublon accepté",
+  "src/suivi.ts",
+  "if (starts.includes(d))",
+  "if (false)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S16 limite 400 exclue",
+  "src/suivi.ts",
+  "starts.length >= 400",
+  "starts.length > 400",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S17 écart long non signalé",
+  "src/suivi.ts",
+  "gaps.some(g => g < MIN_CYCLE || g > MAX_CYCLE)",
+  "gaps.some(g => g < MIN_CYCLE)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S18 écart avec le suivant",
+  "src/suivi.ts",
+  "gap: prev ? diffDays(prev, d) : null",
+  "gap: next ? diffDays(d, next) : null",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S19 seuil de 2 notes par phase",
+  "src/suivi.ts",
+  "(by[p]?.length ?? 0) >= 3",
+  "(by[p]?.length ?? 0) >= 2",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S20 notes futures comptées",
+  "src/suivi.ts",
+  "if (d > day) continue",
+  "if (false) continue",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S21 récupération basse à 3",
+  "src/suivi.ts",
+  "x.v[0] <= 2",
+  "x.v[0] <= 3",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S22 série d'hier toujours comptée",
+  "src/suivi.ts",
+  "c.rec[day] === undefined && low3(c, addDays(day, -1))",
+  "true && low3(c, addDays(day, -1))",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S23 série d'hier ignorée",
+  "src/suivi.ts",
+  "low3(c, day) || (c.rec[day] === undefined && low3(c, addDays(day, -1)))",
+  "low3(c, day)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S24 prochaines règles +1",
+  "src/suivi.ts",
+  "addDays(last, len) : null",
+  "addDays(last, len + 1) : null",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S25 ovulation à len-13",
+  "src/suivi.ts",
+  "const ov = len - 14",
+  "const ov = len - 13",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S26 série de jours décalée",
+  "src/suivi.ts",
+  "addDays(day, i - n + 1)",
+  "addDays(day, i - n)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S27 date inexistante acceptée",
+  "src/schema.ts",
+  "return !isNaN(t) && new Date(t).toISOString().slice(0, 10) === x",
+  "return !isNaN(t)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S28 partage cycle : lit la récupération",
+  "src/share.ts",
+  "e = c.en[day]",
+  "e = c.rec[day]?.[0]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S29 partage : récupération hors mode",
+  "src/share.ts",
+  "if (c.mode === 'recup' && r)",
+  "if (r)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S30 moyenne des semaines",
+  "src/suivi.ts",
+  "vs.length ? { n: vs.length, rec: avg(vs.map(v => v[0]))!",
+  "vs.length ? { n: vs.length, rec: avg(vs.map(v => v[1]))!",
+  [
+   "@audit"
+  ]
+ ]
+]

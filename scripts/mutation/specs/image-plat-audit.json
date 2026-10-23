@@ -1,0 +1,434 @@
+[
+ [
+  "I1 6 images / 10 min → 7",
+  "api/img.ts",
+  "MAX_HITS = 6, DAILY",
+  "MAX_HITS = 7, DAILY",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I2 compteur partagé avec le texte",
+  "api/img.ts",
+  "const ROUTE = 'img'",
+  "const ROUTE = 'ai'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I3 plafond par défaut 21",
+  "api/img.ts",
+  "limit(process.env.AI_IMAGE_DAILY_LIMIT, 20)",
+  "limit(process.env.AI_IMAGE_DAILY_LIMIT, 21)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I4 valeur négative = sans limite",
+  "api/img.ts",
+  "return Number.isFinite(n) && n >= 0 ? n : def }",
+  "return Number.isFinite(n) ? n : def }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I5 valeur vide = sans limite",
+  "api/img.ts",
+  "v === undefined || v.trim() === '' ? def : Number(v)",
+  "v === undefined ? def : Number(v)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I6 valeur illisible = sans limite",
+  "api/img.ts",
+  "Number.isFinite(n) && n >= 0 ? n : def",
+  "n >= 0 ? n : 0",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I7 modèle par défaut",
+  "api/img.ts",
+  "|| 'gemini-nano-banana-2.1'",
+  "|| 'gemini-nano-banana-2'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I8 taille 2K",
+  "api/img.ts",
+  "imageSize: '1K'",
+  "imageSize: '2K'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I9 ratio 16:9",
+  "api/img.ts",
+  "aspectRatio: '4:3'",
+  "aspectRatio: '16:9'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I10 modalité image seule",
+  "api/img.ts",
+  "responseModalities: ['TEXT', 'IMAGE']",
+  "responseModalities: ['IMAGE']",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I11 clé dans un autre en-tête",
+  "api/img.ts",
+  "'x-goog-api-key': key",
+  "'x-api-key': key",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I12 version d’API beta",
+  "api/img.ts",
+  "'https://generativelanguage.googleapis.com/v1/models/'",
+  "'https://generativelanguage.googleapis.com/v1beta/models/'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I13 étapes de réflexion gardées",
+  "api/img.ts",
+  "(p.thought ? null : p.inlineData ?? p.inline_data ?? null)",
+  "(p.inlineData ?? p.inline_data ?? null)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I14 première image au lieu de la dernière",
+  "api/img.ts",
+  "imgs[imgs.length - 1]",
+  "imgs[0]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I15 limite de poids +1",
+  "api/img.ts",
+  "BIG = 3400000",
+  "BIG = 3400001",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I16 limite de poids −1",
+  "api/img.ts",
+  "BIG = 3400000",
+  "BIG = 3399999",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I17 base64 non contrôlé côté serveur",
+  "api/img.ts",
+  " || !/^[A-Za-z0-9+/]+=*$/.test(d.data)) return res.status(502)",
+  ") return res.status(502)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I18 webp refusé",
+  "api/img.ts",
+  "['image/png', 'image/jpeg', 'image/webp']",
+  "['image/png', 'image/jpeg']",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I19 svg accepté",
+  "api/img.ts",
+  "['image/png', 'image/jpeg', 'image/webp']",
+  "['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml']",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I20 RECITATION non bloquée",
+  "api/img.ts",
+  "'BLOCKLIST', 'RECITATION', 'IMAGE_PROHIBITED_CONTENT'",
+  "'BLOCKLIST', 'IMAGE_PROHIBITED_CONTENT'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I21 quota Google renvoyé en 502",
+  "api/img.ts",
+  "res.status(r.status === 429 ? 429 : 502)",
+  "res.status(502)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I22 404 Google renvoyé tel quel",
+  "api/img.ts",
+  "res.status(r.status === 429 ? 429 : 502)",
+  "res.status(r.status === 429 ? 429 : r.status)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I23 403 non traduit",
+  "api/img.ts",
+  "[400, 401, 403].includes(r.status)",
+  "[400, 401].includes(r.status)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I24 modèle introuvable non traduit",
+  "api/img.ts",
+  "r.status === 404 ? 'model' :",
+  "",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I25 délai dépassé en 502",
+  "api/img.ts",
+  "res.status(to2 ? 504 : 502)",
+  "res.status(502)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I26 délai de 5 s",
+  "api/img.ts",
+  "setTimeout(() => ctl.abort(), 50000)",
+  "setTimeout(() => ctl.abort(), 5000)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I27 minuterie jamais annulée",
+  "api/img.ts",
+  "    clearTimeout(to)\n",
+  "    void to\n",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I28 13 ingrédients",
+  "api/img.ts",
+  ".slice(0, 12) : []",
+  ".slice(0, 13) : []",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I29 51 éléments examinés",
+  "api/img.ts",
+  "ingredients.slice(0, 50)",
+  "ingredients.slice(0, 51)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I30 titre de 101 caractères",
+  "api/img.ts",
+  "clean(title, 100)",
+  "clean(title, 101)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I31 ingrédient de 61 caractères",
+  "api/img.ts",
+  "clean(x, 60)",
+  "clean(x, 61)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I32 ingrédients non-liste acceptés",
+  "api/img.ts",
+  "(ingredients !== undefined && !Array.isArray(ingredients))",
+  "false",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I33 titre vide accepté",
+  "api/img.ts",
+  "if (!t ||",
+  "if (",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I34 titre non texte accepté",
+  "api/img.ts",
+  "typeof title === 'string' ? clean(title, 100) : ''",
+  "clean(title, 100)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I35 clé absente non détectée",
+  "api/img.ts",
+  "if (!key) return res.status(503).json({ error: 'not_configured' })",
+  "",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I36 méthode non contrôlée",
+  "api/img.ts",
+  "if (req.method !== 'POST') return res.status(405).json({ error: 'method' })",
+  "",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I37 blocage amont ignoré",
+  "api/img.ts",
+  "if (j.promptFeedback?.blockReason) return res.status(422).json({ error: 'blocked' })",
+  "",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I38 type d’image non normalisé",
+  "api/img.ts",
+  "mime: String(d.mimeType ?? d.mime_type).toLowerCase()",
+  "mime: String(d.mimeType ?? d.mime_type)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I39 version du modèle ignorée",
+  "api/img.ts",
+  "model: j.modelVersion ?? model",
+  "model",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I40 guillemets conservés dans le titre",
+  "api/img.ts",
+  "[\\u0000-\\u001f\\u007f<>{}\\[\\]`\"\\\\]",
+  "[\\u0000-\\u001f\\u007f<>{}\\[\\]`\\\\]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I41 chevrons conservés",
+  "api/img.ts",
+  "[\\u0000-\\u001f\\u007f<>{}\\[\\]`\"\\\\]",
+  "[\\u0000-\\u001f\\u007f{}\\[\\]`\"\\\\]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "I42 clé dans l’adresse",
+  "api/img.ts",
+  "encodeURIComponent(model) + ':generateContent'",
+  "encodeURIComponent(model) + ':generateContent?key=' + key",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C1 client : adresse /api/ai",
+  "src/ai.ts",
+  "post({ title, ingredients }, signal, '/api/img')",
+  "post({ title, ingredients }, signal, '/api/ai')",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C2 client : image non texte acceptée",
+  "src/ai.ts",
+  "typeof j.image !== 'string' || !/^image",
+  "!/^image",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C3 client : svg accepté",
+  "src/ai.ts",
+  "/^image\\/(png|jpeg|webp)$/",
+  "/^image\\/(png|jpeg|webp|svg\\+xml)$/",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C4 client : base64 non contrôlé",
+  "src/ai.ts",
+  " || !/^[A-Za-z0-9+/]+=*$/.test(j.image)) throw new Error('upstream')",
+  ") throw new Error('upstream')",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C5 client : préfixe",
+  "src/ai.ts",
+  "return 'data:' + j.mime + ';base64,' + j.image",
+  "return 'data:' + j.mime + ',' + j.image",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "C6 client : mime avec suffixe accepté",
+  "src/ai.ts",
+  "/^image\\/(png|jpeg|webp)$/",
+  "/^image\\/(png|jpeg|webp)/",
+  [
+   "@audit"
+  ]
+ ]
+]

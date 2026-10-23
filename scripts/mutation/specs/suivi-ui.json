@@ -1,0 +1,245 @@
+[
+ [
+  "U1 retrait de date sans confirmation",
+  "src/SuiviPage.tsx",
+  "onClick={() => setDel(d)}>Retirer</button>",
+  "onClick={() => remove(d)}>Retirer</button>",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U2 sept dates montrées",
+  "src/SuiviPage.tsx",
+  "sorted.slice(0, 6)",
+  "sorted.slice(0, 7)",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U3 limite énergie exclue",
+  "src/SuiviPage.tsx",
+  "Object.keys(c.en).length >= MAX_DAYS",
+  "Object.keys(c.en).length > MAX_DAYS",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U4 limite récupération exclue",
+  "src/SuiviPage.tsx",
+  "Object.keys(c.rec).length >= MAX_DAYS",
+  "Object.keys(c.rec).length > MAX_DAYS",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U5 partage affiché sans accord",
+  "src/SuiviPage.tsx",
+  "S.consents.share && S.share.vis.cycle === true && c.mode !== 'off'",
+  "S.share.vis.cycle === true && c.mode !== 'off'",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U6 partage affiché suivi désactivé",
+  "src/SuiviPage.tsx",
+  "S.share.vis.cycle === true && c.mode !== 'off'",
+  "S.share.vis.cycle === true",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U7 jours dans l'ordre inverse",
+  "src/SuiviPage.tsx",
+  "lastDays(t, 14).reverse().map(",
+  "lastDays(t, 14).map(",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U8 treize jours proposés",
+  "src/SuiviPage.tsx",
+  "lastDays(t, 14).reverse()",
+  "lastDays(t, 13).reverse()",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U9 brouillon valable pour tous les jours",
+  "src/SuiviPage.tsx",
+  "dr && dr.d === day ? dr.v",
+  "dr ? dr.v",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U10 notes manquantes acceptées",
+  "src/SuiviPage.tsx",
+  "const miss = NAMES.filter((_, i) => v[i] === undefined)",
+  "const miss = NAMES.filter((_, i) => false)",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U11 sans focus après retrait",
+  "src/SuiviPage.tsx",
+  "s.cycle.starts.filter(x => x !== d) })); gone() }",
+  "s.cycle.starts.filter(x => x !== d) })) }",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U12 effacement oublie la récupération",
+  "src/SuiviPage.tsx",
+  "s.cycle.starts = []; s.cycle.en = {}; s.cycle.rec = {}",
+  "s.cycle.starts = []; s.cycle.en = {}",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U13 effacement désactive le suivi",
+  "src/SuiviPage.tsx",
+  "s.cycle.starts = []; s.cycle.en = {}; s.cycle.rec = {}",
+  "s.cycle.starts = []; s.cycle.en = {}; s.cycle.rec = {}; s.cycle.mode = 'off'",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U14 changer de suivi efface l'énergie",
+  "src/SuiviPage.tsx",
+  "upd(s => { s.cycle.mode = v })",
+  "upd(s => { s.cycle.mode = v; s.cycle.en = {} })",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U15 barres de hauteur 12",
+  "src/SuiviPage.tsx",
+  "height: v === null ? 2 : v * 14",
+  "height: v === null ? 2 : v * 12",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U16 semaine dans l'ordre inverse",
+  "src/SuiviPage.tsx",
+  ".filter(x => x.v !== null).reverse()",
+  ".filter(x => x.v !== null)",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U17 conseil toujours affiché",
+  "src/SuiviPage.tsx",
+  "{lowRecovery(c, t) && (",
+  "{true && (",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U18 énergie enregistrée sur aujourd'hui",
+  "src/SuiviPage.tsx",
+  "s.cycle.en[day] = n",
+  "s.cycle.en[t] = n",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U19 récupération enregistrée sur aujourd'hui",
+  "src/SuiviPage.tsx",
+  "s.cycle.rec[day] = tri",
+  "s.cycle.rec[t] = tri",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U20 date de règles sans maximum",
+  "src/SuiviPage.tsx",
+  "<input id=\"sv-start\" type=\"date\" max={t}",
+  "<input id=\"sv-start\" type=\"date\"",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U21 rappel Sport sans accord Santé",
+  "src/Sport.tsx",
+  "S.consents.health && S.cycle.mode === 'recup' && lowRecovery",
+  "S.cycle.mode === 'recup' && lowRecovery",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U22 rappel Sport dans tous les suivis",
+  "src/Sport.tsx",
+  "S.consents.health && S.cycle.mode === 'recup' && lowRecovery",
+  "S.consents.health && lowRecovery",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U23 moyennes par phase sans seuil dans l'interface",
+  "src/SuiviPage.tsx",
+  "{ph.length\n",
+  "{true\n",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U24 suggestion Femme/Homme inversée",
+  "src/SuiviPage.tsx",
+  "g === 'F' ? 'D’après votre profil, le suivi du cycle",
+  "g === 'M' ? 'D’après votre profil, le suivi du cycle",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U25 message d'échec de stockage absent",
+  "src/SuiviPage.tsx",
+  "{ e: 1, t: (what ?? t.replace",
+  "{ t: (what ?? t.replace",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U26 retrait de note sans effet (énergie)",
+  "src/SuiviPage.tsx",
+  "delete s.cycle.en[day]",
+  "void s.cycle.en[day]",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ],
+ [
+  "U27 retrait de note sans effet (récupération)",
+  "src/SuiviPage.tsx",
+  "delete s.cycle.rec[day]",
+  "void s.cycle.rec[day]",
+  [
+   "src/suivi.test.tsx"
+  ]
+ ]
+]

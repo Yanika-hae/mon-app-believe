@@ -1,0 +1,164 @@
+[
+ [
+  "P1 gratitudes partagées",
+  "src/share.ts",
+  "s.prayers.filter(x => x.k !== 'g').map(",
+  "s.prayers.map(",
+  [
+   "src/share.test.tsx"
+  ]
+ ],
+ [
+  "P2 date d’exaucement sans bornes",
+  "src/Prayers.tsx",
+  "if (v < x.c || v > today()) setEr(range)",
+  "if (false) setEr(range)",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P3 suppression sans confirmation",
+  "src/Prayers.tsx",
+  "onClick={() => setDel(true)}>Supprimer</button>",
+  "onClick={remove}>Supprimer</button>",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P4 case Exaucée sur une gratitude",
+  "src/Prayers.tsx",
+  "{!g && <label className=\"rd\"><input type=\"checkbox\"",
+  "{<label className=\"rd\"><input type=\"checkbox\"",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P5 exaucement daté avant la création",
+  "src/Prayers.tsx",
+  "const d = today() < x.c ? x.c : today()",
+  "const d = today()",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P6 champ non vidé après ajout",
+  "src/Prayers.tsx",
+  "setEr(''); setTxt('') //",
+  "setEr('') //",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P7 échec d’enregistrement non signalé",
+  "src/Prayers.tsx",
+  "setFb(saved ? { t } : {",
+  "setFb(true ? { t } : {",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P8 champ non activé par l’adresse",
+  "src/Prayers.tsx",
+  "ta.current?.focus() } }, [focus])",
+  "} }, [focus])",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P9 tri des plus récents",
+  "src/Prayers.tsx",
+  "[...l].reverse().sort((x, y) => (y[key] ?? '').localeCompare(x[key] ?? ''))",
+  "[...l]",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P10 limite de 1 000 éléments",
+  "src/Prayers.tsx",
+  "if (S.prayers.length >= MAX_ITEMS) return",
+  "if (false) return",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P11 le focus ne suit pas l’élément",
+  "src/Prayers.tsx",
+  "if (fid === '-') head.current?.focus(); else document.querySelector<HTMLElement>('[data-pcb=\"' + fid + '\"]')?.focus()",
+  "void fid",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P12 Échap n’annule pas",
+  "src/Prayers.tsx",
+  "if (e.key === 'Escape') { e.stopPropagation(); setVal(x.t); close() }",
+  "if (false) { close() }",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P13 texte vide accepté à la modification",
+  "src/Prayers.tsx",
+  "if (!t) return setEr(g ?",
+  "if (false) return setEr(g ?",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P14 schéma : type de gratitude libre",
+  "src/lib.ts",
+  "k: V.opt(V.lit('g')) }), 1000)",
+  "k: V.opt(V.str(5)) }), 1000)",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P15 raccourci sans effet sur la même adresse",
+  "src/App.tsx",
+  "if (href === '#/4/prieres' && href === location.hash) { e.preventDefault(); setTimeout(focusPrayerField, 0) }",
+  "",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P16 dates : jour incomplet traité comme erreur",
+  "src/Prayers.tsx",
+  "if (!v) return // saisie du jour encore incomplète",
+  "",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P17 sujets coupés : intitulé non abrégé",
+  "src/Prayers.tsx",
+  "return s.length > 60 ? s.slice(0, 57) + '…' : s",
+  "return s",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ],
+ [
+  "P18 uncheck laisse la date",
+  "src/Prayers.tsx",
+  "if (y) y.a = on ? d : null })",
+  "if (y) y.a = d })",
+  [
+   "src/prayers.test.tsx"
+  ]
+ ]
+]

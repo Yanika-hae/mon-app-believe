@@ -1,0 +1,5 @@
+node_modules
+dist
+.vercel
+e2e-shots
+__pycache__

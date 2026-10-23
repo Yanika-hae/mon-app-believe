@@ -1,0 +1,200 @@
+[
+ [
+  "M1 début de fenêtre exclu",
+  "src/remind.ts",
+  "now >= d - lead * 60_000 && now <= d + GRACE_MS",
+  "now > d - lead * 60_000 && now <= d + GRACE_MS",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M2 fin de fenêtre exclue",
+  "src/remind.ts",
+  "now >= d - lead * 60_000 && now <= d + GRACE_MS",
+  "now >= d - lead * 60_000 && now < d + GRACE_MS",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M3 tolérance de 13 h",
+  "src/remind.ts",
+  "GRACE_MS = 12 * 3600e3",
+  "GRACE_MS = 13 * 3600e3",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M4 tâches terminées rappelées",
+  "src/remind.ts",
+  "return !t.done && t.r !== t.due",
+  "return t.r !== t.due",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M5 rappel redonné",
+  "src/remind.ts",
+  "return !t.done && t.r !== t.due &&",
+  "return !t.done &&",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M6 pas de tri",
+  "src/remind.ts",
+  ".sort((a, b) => dueMs(a) - dueMs(b))\n",
+  "\n",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M7 création dans le délai : borne exclue",
+  "src/remind.ts",
+  "return !isNaN(d) && now >= d - lead * 60_000 }",
+  "return !isNaN(d) && now > d - lead * 60_000 }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M8 demain",
+  "src/remind.ts",
+  "k === 1 ? 'demain'",
+  "k === 1 ? 'aujourd’hui'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M9 hier",
+  "src/remind.ts",
+  "k === -1 ? 'hier'",
+  "k === -1 ? 'avant-hier'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M10 notifications non prises en charge",
+  "src/remind.ts",
+  "typeof Notification === 'undefined' ? 'unsupported' :",
+  "",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M11 notification sans autorisation",
+  "src/remind.ts",
+  "  if (permission() !== 'granted') return false\n  const opt",
+  "  const opt",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M12 service worker ignoré",
+  "src/remind.ts",
+  "if (reg && typeof reg.showNotification === 'function')",
+  "if (false)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M13 lien de la notification",
+  "src/remind.ts",
+  "data: { url: '/#/9' }",
+  "data: { url: '/#/4' }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M14 icône",
+  "src/remind.ts",
+  "icon: '/icon-192.png'",
+  "icon: '/icon.png'",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M15 délais proposés",
+  "src/remind.ts",
+  "LEADS = [0, 10, 30, 60, 120]",
+  "LEADS = [0, 10, 30, 60, 90]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M16 contrôle toutes les 60 s",
+  "src/remind.ts",
+  "CHECK_MS = 30_000",
+  "CHECK_MS = 60_000",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M17 pas de repli sans service worker",
+  "src/remind.ts",
+  "  try { new Notification(title, opt); return true } catch { return false }",
+  "  return false",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M18 refus de la demande non géré",
+  "src/remind.ts",
+  "  try { return (await Notification.requestPermission()) as Perm } catch { return permission() }",
+  "  return (await Notification.requestPermission()) as Perm",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "M19 minutes → 59",
+  "src/remind.ts",
+  "export const remindAt = (t: Task, lead: number) => dueMs(t) - lead * 60_000",
+  "export const remindAt = (t: Task, lead: number) => dueMs(t) - lead * 59_000",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S1 délai par défaut 31",
+  "src/lib.ts",
+  "haptics: true, sounds: true, remind: 30 }",
+  "haptics: true, sounds: true, remind: 31 }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S2 délai libre accepté",
+  "src/lib.ts",
+  "remind: V.lit(0, 10, 30, 60, 120) }),",
+  "remind: V.num() }),",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "S3 marque de rappel trop longue acceptée",
+  "src/lib.ts",
+  "r: V.opt(V.str(40)) }), 5000),",
+  "r: V.opt(V.str(4000)) }), 5000),",
+  [
+   "@audit"
+  ]
+ ]
+]

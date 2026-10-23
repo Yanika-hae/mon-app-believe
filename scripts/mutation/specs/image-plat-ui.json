@@ -1,0 +1,218 @@
+[
+ [
+  "R1 ingrédients non envoyés",
+  "src/Sante.tsx",
+  "askImage(r.titre, r.ingredients, a.signal)",
+  "askImage(r.titre, [], a.signal)",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R2 réponse tardive acceptée",
+  "src/Sante.tsx",
+  "if (pac.current[i] === a) setPics(p => ({ ...p, [i]: { st: 'ok', src } }))",
+  "setPics(p => ({ ...p, [i]: { st: 'ok', src } }))",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R3 nouvelle recherche garde les images",
+  "src/Sante.tsx",
+  "pac.current = {}; setPics({})",
+  "pac.current = {}",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R4 nouvelle recherche n’annule pas",
+  "src/Sante.tsx",
+  "for (const a of Object.values(pac.current)) a.abort() // les images",
+  "for (const a of []) a.abort() // les images",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R5 annuler n’interrompt pas",
+  "src/Sante.tsx",
+  "const dropPic = (i: number) => { pac.current[i]?.abort(); delete",
+  "const dropPic = (i: number) => { delete",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R6 annuler oublie de désarmer",
+  "src/Sante.tsx",
+  "delete pac.current[i]; setPics(p => { const { [i]: _, ...rest } = p; return rest }) }",
+  "setPics(p => { const { [i]: _, ...rest } = p; return rest }) }",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R7 blocage de sécurité sans message dédié",
+  "src/Sante.tsx",
+  "c === 'blocked' ? 'Le service IA n’a pas pu créer cette image (filtres de sécurité). Essayez avec une autre recette.' : msgOf(c)",
+  "msgOf(c)",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R8 texte alternatif",
+  "src/Sante.tsx",
+  "alt={'Illustration du plat générée par IA : ' + r.titre}",
+  "alt={r.titre}",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R9 mention « Généré par IA » retirée",
+  "src/Sante.tsx",
+  "<figcaption className=\"mut\"><small>Généré par IA : illustration (Google Gemini, filigrane invisible SynthID). La recette réelle peut différer.</small></figcaption>",
+  "",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R10 image sous le titre",
+  "src/Sante.tsx",
+  "{p?.st === 'ok' && <figure className=\"dish\"><img src={p.src} alt={'Illustration du plat générée par IA : ' + r.titre} /><figcaption className=\"mut\"><small>Généré par IA : illustration (Google Gemini, filigrane invisible SynthID). La recette réelle peut différer.</small></figcaption></figure>}\n          <h2>{r.titre}</h2>",
+  "<h2>{r.titre}</h2>{p?.st === 'ok' && <figure className=\"dish\"><img src={p.src} alt={'Illustration du plat générée par IA : ' + r.titre} /><figcaption className=\"mut\"><small>Généré par IA : illustration (Google Gemini, filigrane invisible SynthID). La recette réelle peut différer.</small></figcaption></figure>}",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R11 « Réessayer » absent",
+  "src/Sante.tsx",
+  "p?.st === 'err' ? 'Réessayer l’image'",
+  "p?.st === 'err' ? 'Générer l’image du plat'",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R12 bouton sans description",
+  "src/Sante.tsx",
+  "aria-describedby=\"dish-note\" onClick",
+  "onClick",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R13 note sans prix ni limite",
+  "src/Sante.tsx",
+  "(service payant, limité chaque jour)",
+  "",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R14 recettes sans accord IA",
+  "src/Sante.tsx",
+  "if (!S.consents.ai) return <AiGate S={S} upd={upd} photo={false} />\n  const photo = async (f?: File)",
+  "const photo = async (f?: File)",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R15 accord sans mention de l’image",
+  "src/Sante.tsx",
+  "{photo ? '' : ' Si vous demandez l’image d’une recette, son titre et ses ingrédients sont envoyés de la même façon.'}",
+  "",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R16 état « en cours » non affiché",
+  "src/Sante.tsx",
+  "setPics(p => ({ ...p, [i]: { st: 'busy' } }))",
+  "",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R17 erreur non annoncée",
+  "src/Sante.tsx",
+  "{p?.st === 'err' && <p className=\"ko\" role=\"alert\">{p.err}</p>}",
+  "{p?.st === 'err' && <p className=\"ko\">{p.err}</p>}",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R18 annonce de fin absente",
+  "src/Sante.tsx",
+  "p?.st === 'ok' ? 'Image du plat créée.' : ''",
+  "''",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R19 annonce de début absente",
+  "src/Sante.tsx",
+  "p?.st === 'busy' ? 'Création de l’image en cours.'",
+  "p?.st === 'busy' ? ''",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R20 « Retirer » ne retire pas",
+  "src/Sante.tsx",
+  "(p?.st === 'busy' || p?.st === 'ok' ? dropPic(n) : pic(n))",
+  "(p?.st === 'busy' ? dropPic(n) : pic(n))",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R21 mauvaise adresse",
+  "src/ai.ts",
+  "post({ title, ingredients }, signal, '/api/img')",
+  "post({ title, ingredients }, signal)",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R22 base64 non contrôlé",
+  "src/ai.ts",
+  " || !/^[A-Za-z0-9+/]+=*$/.test(j.image)) throw new Error('upstream')",
+  ") throw new Error('upstream')",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R23 préfixe data: modifié",
+  "src/ai.ts",
+  "return 'data:' + j.mime + ';base64,' + j.image",
+  "return 'data:image/png;base64,' + j.image",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ],
+ [
+  "R24 image enregistrée dans les repas",
+  "src/Sante.tsx",
+  "upd(s => pushMeal(s, { n: r.titre, kcal: r.kcal, p: r.proteines, g: r.glucides, l: r.lipides }, 'IA')",
+  "upd(s => pushMeal(s, { n: r.titre + (p?.st === 'ok' ? p.src : ''), kcal: r.kcal, p: r.proteines, g: r.glucides, l: r.lipides }, 'IA')",
+  [
+   "src/recipes.test.tsx"
+  ]
+ ]
+]

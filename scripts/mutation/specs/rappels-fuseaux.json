@@ -1,0 +1,11 @@
+[
+ [
+  "M20 jour calendaire calculé en UTC",
+  "src/remind.ts",
+  "const dayN = (d: Date) => Math.round(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5)",
+  "const dayN = (d: Date) => Math.floor(d.getTime() / 864e5)",
+  [
+   "@audit"
+  ]
+ ]
+]

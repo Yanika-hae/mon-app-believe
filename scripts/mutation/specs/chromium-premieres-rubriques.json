@@ -1,0 +1,112 @@
+[
+ [
+  "M1 balayage sans vibration",
+  "src/App.tsx",
+  "haptic(S); location.hash = '#/' + MAIN[j]; return true",
+  "location.hash = '#/' + MAIN[j]; return true",
+  [
+   "@e2e",
+   "^Balayage tactile des sections"
+  ]
+ ],
+ [
+  "M2 will-change permanent sur la page",
+  "src/styles.css",
+  ".view.wc,.sheet,.modal{will-change:transform,opacity}",
+  ".view,.view.wc,.sheet,.modal{will-change:transform,opacity}",
+  [
+   "@e2e",
+   "^Transitions \\("
+  ]
+ ],
+ [
+  "M3 pas de verset après le PIN",
+  "src/App.tsx",
+  "lock(false); askVerse() }} onForgot",
+  "lock(false) }} onForgot",
+  [
+   "@e2e",
+   "^Verset du jour et PIN"
+  ]
+ ],
+ [
+  "M4 jour du verset non enregistré à la fermeture",
+  "src/App.tsx",
+  "const closeVerse = () => { setVm(false); upd(s => { s.ui.verseDay = today() }) }",
+  "const closeVerse = () => { setVm(false) }",
+  [
+   "@e2e",
+   "^(Verset du jour \\(|Verset du jour et PIN)"
+  ]
+ ],
+ [
+  "M5 verset ouvert derrière le verrouillage",
+  "src/App.tsx",
+  "!lockedRef.current) { setSheet(false); setVm(true) }",
+  "true) { setSheet(false); setVm(true) }",
+  [
+   "@e2e",
+   "^Verset du jour et PIN"
+  ]
+ ],
+ [
+  "M6 pas de retour au premier plan",
+  "src/App.tsx",
+  "const vc = () => { if (!document.hidden) { upd(s => roll(s)); askVerse() } }",
+  "const vc = () => { if (!document.hidden) { upd(s => roll(s)) } }",
+  [
+   "@e2e",
+   "^Verset du jour et PIN"
+  ]
+ ],
+ [
+  "M7 champ de prière non activé",
+  "src/Prayers.tsx",
+  "ta.current?.focus() } }, [focus])",
+  "} }, [focus])",
+  [
+   "@e2e",
+   "^Mur de prières \\("
+  ]
+ ],
+ [
+  "M8 date d’exaucement sans bornes",
+  "src/Prayers.tsx",
+  "if (v < x.c || v > today()) setEr(",
+  "if (false) setEr(",
+  [
+   "@e2e",
+   "^Mur de prières \\("
+  ]
+ ],
+ [
+  "M9 suppression sans confirmation",
+  "src/Prayers.tsx",
+  "onClick={() => setDel(true)}>Supprimer</button>",
+  "onClick={() => upd(s => { s.prayers = s.prayers.filter(y => y.id !== x.id) })}>Supprimer</button>",
+  [
+   "@e2e",
+   "^Mur de prières \\("
+  ]
+ ],
+ [
+  "M10 accueil guidé : on passe sans enregistrer",
+  "src/ProfileForm.tsx",
+  "if (upd(s => { s.profile = { g: f.g as 'F' | 'M'",
+  "if (true || upd(s => { s.profile = { g: f.g as 'F' | 'M'",
+  [
+   "@e2e",
+   "^Accueil guidé \\("
+  ]
+ ],
+ [
+  "M12 vibration malgré le réglage coupé",
+  "src/ui.tsx",
+  "if (S.settings.haptics && !reduced(S))",
+  "if (!reduced(S))",
+  [
+   "@e2e",
+   "^Balayage tactile des sections"
+  ]
+ ]
+]

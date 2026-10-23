@@ -1,0 +1,122 @@
+[
+ [
+  "DE1 langue anglaise",
+  "src/dictation.ts",
+  "r.lang = 'fr-FR'; r.continuous = false;",
+  "r.lang = 'en-US'; r.continuous = false;",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE2 écoute continue",
+  "src/dictation.ts",
+  "r.continuous = false; r.interimResults = true",
+  "r.continuous = true; r.interimResults = true",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE3 envoi sans couper l’écoute",
+  "src/AIPage.tsx",
+  "dict.kill(); dict.setErr(null); setNote(''); setFull(false) // la question part : les messages de la dictée ne la concernent plus",
+  "dict.setErr(null); setNote(''); setFull(false) // la question part : les messages de la dictée ne la concernent plus",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE4 page masquée : écoute gardée",
+  "src/dictation.ts",
+  "const h = () => { if (document.hidden) kill() }",
+  "const h = () => { /* écoute gardée */ }",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE5 accord ignoré",
+  "src/AIPage.tsx",
+  "else if (S.consents.speech) { setNote(''); setFull(false); dict.start() }",
+  "else if (true) { setNote(''); setFull(false); dict.start() }",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE6 focus non placé sur la carte",
+  "src/AIPage.tsx",
+  "if (askSpeech) spHead.current?.focus()",
+  "if (askSpeech) void spHead.current",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE7 « Plus tard » sans retour du focus",
+  "src/AIPage.tsx",
+  "onClick={() => { back.current = true; setAskSpeech(false) }}>Plus tard",
+  "onClick={() => { setAskSpeech(false) }}>Plus tard",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE8 texte dicté envoyé tout seul",
+  "src/AIPage.tsx",
+  "setInp(n); setFull(false); setNote(",
+  "setInp(n); setFull(false); void send(n); setNote(",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE9 fin du moteur ignorée",
+  "src/dictation.ts",
+  "r.onend = () => { if (rec.current === r) { window.clearTimeout(timer.current); rec.current = null; setSt('idle'); setInterim('') } }",
+  "r.onend = () => {}",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE10 erreur du moteur muette",
+  "src/dictation.ts",
+  "r.onerror = e => { if (rec.current === r && e.error !== 'aborted') setErr(dictErr(e.error)) }",
+  "r.onerror = () => {}",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE11 l’accord ne lance pas l’écoute",
+  "src/AIPage.tsx",
+  "{ back.current = true; setAskSpeech(false); setNote(''); dict.start() }",
+  "{ back.current = true; setAskSpeech(false); setNote('') }",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ],
+ [
+  "DE12 la page quittée garde l’écoute",
+  "src/dictation.ts",
+  "return () => { document.removeEventListener('visibilitychange', h); kill() }",
+  "return () => { document.removeEventListener('visibilitychange', h) }",
+  [
+   "@e2e",
+   "^Dictée vocale du chat Believe AI"
+  ]
+ ]
+]

@@ -1,0 +1,542 @@
+[
+ [
+  "D1 pas de majuscule après une phrase terminée",
+  "src/dictation.ts",
+  "const t = !b || /[.!?…]$/.test(b) ? s.charAt(0)",
+  "const t = !b ? s.charAt(0)",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D2 majuscule toujours",
+  "src/dictation.ts",
+  "const t = !b || /[.!?…]$/.test(b) ? s.charAt(0).toLocaleUpperCase('fr-FR') + s.slice(1) : s",
+  "const t = s.charAt(0).toLocaleUpperCase('fr-FR') + s.slice(1)",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D3 pas de majuscule sur un champ vide",
+  "src/dictation.ts",
+  "const t = !b || /[.!?…]$/.test(b) ? s.charAt(0)",
+  "const t = /[.!?…]$/.test(b) ? s.charAt(0)",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D4 texte trop long accepté",
+  "src/dictation.ts",
+  "return out.length > max ? null : out",
+  "return out",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D5 limite incluse refusée",
+  "src/dictation.ts",
+  "out.length > max ? null",
+  "out.length >= max ? null",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D6 texte vide ajoute une espace",
+  "src/dictation.ts",
+  "  if (!s) return base\n",
+  "",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D7 langue",
+  "src/dictation.ts",
+  "r.lang = 'fr-FR'",
+  "r.lang = 'en-US'",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D8 écoute continue",
+  "src/dictation.ts",
+  "r.continuous = false",
+  "r.continuous = true",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D9 pas de résultats provisoires",
+  "src/dictation.ts",
+  "r.interimResults = true",
+  "r.interimResults = false",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D10 alternatives",
+  "src/dictation.ts",
+  "r.maxAlternatives = 1",
+  "r.maxAlternatives = 3",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D11 provisoire traité comme définitif",
+  "src/dictation.ts",
+  "if (x.isFinal) fin += x[0].transcript + ' '; else tmp += x[0].transcript",
+  "fin += x[0].transcript + ' '",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D12 morceaux collés sans espace",
+  "src/dictation.ts",
+  "fin += x[0].transcript + ' '; else",
+  "fin += x[0].transcript; else",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D13 résultats relus depuis le début",
+  "src/dictation.ts",
+  "for (let i = e.resultIndex;",
+  "for (let i = 0;",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D14 texte vide ajouté",
+  "src/dictation.ts",
+  "if (fin.trim()) cb.current(fin)",
+  "cb.current(fin)",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D15 arrêt voulu signalé comme erreur",
+  "src/dictation.ts",
+  "if (rec.current === r && e.error !== 'aborted') setErr",
+  "if (rec.current === r) setErr",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D16 pas de délai de sécurité",
+  "src/dictation.ts",
+  "timer.current = window.setTimeout(() => { if (rec.current === r) kill() }, STOP_MS)",
+  "",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D17 délai de sécurité de 40 s",
+  "src/dictation.ts",
+  "export const STOP_MS = 4000",
+  "export const STOP_MS = 40000",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D18 page masquée : micro gardé",
+  "src/dictation.ts",
+  "const h = () => { if (document.hidden) kill() }",
+  "const h = () => { if (false) kill() }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D19 page quittée : micro gardé",
+  "src/dictation.ts",
+  "return () => { document.removeEventListener('visibilitychange', h); kill() }",
+  "return () => { document.removeEventListener('visibilitychange', h) }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D20 début d’écoute jamais signalé",
+  "src/dictation.ts",
+  "r.onstart = () => { if (rec.current === r) setSt('listening') }",
+  "r.onstart = () => { /* rien */ }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D21 démarrage refusé sans message",
+  "src/dictation.ts",
+  "catch { rec.current = null; setSt('idle'); setErr(dictErr('')) }",
+  "catch { rec.current = null; setSt('idle') }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D22 ancienne erreur gardée",
+  "src/dictation.ts",
+  "rec.current = r; setErr(null); setSt('starting')",
+  "rec.current = r; setSt('starting')",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D23 message réseau",
+  "src/dictation.ts",
+  "est injoignable (connexion ?)",
+  "est lent (connexion ?)",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D24 message micro refusé",
+  "src/dictation.ts",
+  "Le micro est refusé pour ce site.",
+  "Le micro est occupé.",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D25 arrêt = abandon",
+  "src/dictation.ts",
+  "try { r.stop() } catch { /* déjà arrêté */ }\n    window.clearTimeout",
+  "try { r.abort() } catch { /* déjà arrêté */ }\n    window.clearTimeout",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D26 moteur préfixé ignoré",
+  "src/dictation.ts",
+  "return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null",
+  "return w.SpeechRecognition ?? null",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D27 moteur standard ignoré",
+  "src/dictation.ts",
+  "return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null",
+  "return w.webkitSpeechRecognition ?? null",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "D28 limite de 4000 caractères",
+  "src/dictation.ts",
+  "export const MAX_Q = 4000",
+  "export const MAX_Q = 3000",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A1 accord contourné",
+  "src/AIPage.tsx",
+  "else if (S.consents.speech) { setNote(''); setFull(false); dict.start() }",
+  "else if (true) { setNote(''); setFull(false); dict.start() }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A2 accord du micro réutilisé",
+  "src/AIPage.tsx",
+  "else if (S.consents.speech) {",
+  "else if (S.consents.mic) {",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A3 mauvais accord enregistré",
+  "src/AIPage.tsx",
+  "upd(s => { s.consents.speech = true }, 'Accord enregistré : dictée vocale.')",
+  "upd(s => { s.consents.mic = true }, 'Accord enregistré : dictée vocale.')",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A4 pas de départ après l’accord",
+  "src/AIPage.tsx",
+  "setAskSpeech(false); setNote(''); dict.start() } }}>J’accepte et je dicte",
+  "setAskSpeech(false); setNote('') } }}>J’accepte et je dicte",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A5 envoi sans couper l’écoute",
+  "src/AIPage.tsx",
+  "dict.kill(); dict.setErr(null); setNote(''); setFull(false) // la question part : les messages de la dictée ne la concernent plus",
+  "dict.setErr(null); setNote(''); setFull(false) // la question part : les messages de la dictée ne la concernent plus",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A6 nouvelle conversation sans couper l’écoute",
+  "src/AIPage.tsx",
+  "onClick={() => { dict.kill(); setMs([]); setEr(null) }}",
+  "onClick={() => { setMs([]); setEr(null) }}",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A7 provisoire annoncé",
+  "src/AIPage.tsx",
+  "<small className=\"mut\" aria-live=\"off\">",
+  "<small className=\"mut\">",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A8 état non annoncé",
+  "src/AIPage.tsx",
+  "<p className=\"mut\" role=\"status\">{dict.st",
+  "<p className=\"mut\">{dict.st",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A9 trop long sans message",
+  "src/AIPage.tsx",
+  "if (n === null) setFull(true); else {",
+  "if (n === null) { } else {",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A10 ajout non annoncé",
+  "src/AIPage.tsx",
+  "setNote('Texte dicté ajouté à votre question.')",
+  "setNote('')",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A11 erreur non annoncée",
+  "src/AIPage.tsx",
+  "{dict.err && <p className=\"ko\" role=\"alert\">{dict.err}</p>}",
+  "{dict.err && <p className=\"ko\">{dict.err}</p>}",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A12 dépassement non annoncé",
+  "src/AIPage.tsx",
+  "{full && <p className=\"ko\" role=\"alert\">",
+  "{full && <p className=\"ko\">",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A13 impossible d’arrêter",
+  "src/AIPage.tsx",
+  "{dict.st === 'idle' ? 'Dicter' : 'Arrêter la dictée'}",
+  "{'Dicter'}",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A15 navigateur sans dictée : pas d’explication",
+  "src/AIPage.tsx",
+  ": <small className=\"mut\">La dictée vocale n’est pas disponible dans ce navigateur : écrivez votre question au clavier.</small>}",
+  ": null}",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A16 destination du son non dite",
+  "src/AIPage.tsx",
+  "<b>Selon le navigateur (Chrome, Safari), le son est envoyé à Google ou à Apple pour être transcrit.</b>",
+  "<b>Le son reste sur l’appareil.</b>",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A17 garde d’enregistrement non dite",
+  "src/AIPage.tsx",
+  "Believe ne reçoit que le texte, ne garde aucun enregistrement, et",
+  "Believe reçoit le texte et",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A18 refus : l’accord est quand même donné",
+  "src/AIPage.tsx",
+  "<button className=\"btn alt\" onClick={() => { back.current = true; setAskSpeech(false) }}>Plus tard</button>",
+  "<button className=\"btn alt\" onClick={() => { upd(s => { s.consents.speech = true }); back.current = true; setAskSpeech(false) }}>Plus tard</button>",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "L1 accord donné d’avance",
+  "src/lib.ts",
+  "mic: false, speech: false, notif: false",
+  "mic: false, speech: true, notif: false",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "L2 schéma sans l’accord (audit)",
+  "src/lib.ts",
+  "mic: V.bool, speech: V.bool, notif: V.bool",
+  "mic: V.bool, notif: V.bool",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "P1 accord absent de la liste",
+  "src/DataPage.tsx",
+  "  ['speech', 'Dictée vocale', ",
+  "  ['xspeech', 'Dictée vocale', ",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "P2 explication sans destination du son",
+  "src/DataPage.tsx",
+  "Selon le navigateur (Chrome, Safari), le son est envoyé à Google ou à Apple pour être transcrit ; Believe ne reçoit que le texte.",
+  "Believe ne reçoit que le texte.",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A14a état « appuyé » ajouté",
+  "src/AIPage.tsx",
+  "<button ref={dictBtn} className=\"btn alt\" onClick={",
+  "<button ref={dictBtn} className=\"btn alt\" aria-pressed={dict.st !== 'idle'} onClick={",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "A14b libellé figé",
+  "src/AIPage.tsx",
+  "{dict.st === 'idle' ? 'Dicter' : 'Arrêter la dictée'}</button>",
+  "{'Dicter'}</button>",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F1 pas de focus à l’ouverture",
+  "src/AIPage.tsx",
+  "if (askSpeech) spHead.current?.focus()",
+  "if (askSpeech) void spHead.current",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F2 pas de retour du focus",
+  "src/AIPage.tsx",
+  "else if (back.current) { back.current = false; dictBtn.current?.focus() }",
+  "else if (back.current) { back.current = false }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F3 « Plus tard » sans retour du focus",
+  "src/AIPage.tsx",
+  "onClick={() => { back.current = true; setAskSpeech(false) }}>Plus tard",
+  "onClick={() => { setAskSpeech(false) }}>Plus tard",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F4 accord sans retour du focus",
+  "src/AIPage.tsx",
+  "{ back.current = true; setAskSpeech(false); setNote(''); dict.start() }",
+  "{ setAskSpeech(false); setNote(''); dict.start() }",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F5 focus repris à chaque rendu",
+  "src/AIPage.tsx",
+  "}, [askSpeech])",
+  "})",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "F6 titre non focusable",
+  "src/AIPage.tsx",
+  "<h2 id=\"sp-h\" ref={spHead} tabIndex={-1}>",
+  "<h2 id=\"sp-h\" ref={spHead}>",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "N1 ancienne erreur gardée après l’envoi",
+  "src/AIPage.tsx",
+  "dict.kill(); dict.setErr(null); setNote(''); setFull(false) // la question part",
+  "dict.kill(); setNote(''); setFull(false) // la question part",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "N2 message d’ajout gardé après l’envoi",
+  "src/AIPage.tsx",
+  "dict.kill(); dict.setErr(null); setNote(''); setFull(false) // la question part",
+  "dict.kill(); dict.setErr(null); setFull(false) // la question part",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "N3 message « trop longue » gardé après l’envoi",
+  "src/AIPage.tsx",
+  "dict.kill(); dict.setErr(null); setNote(''); setFull(false) // la question part",
+  "dict.kill(); dict.setErr(null); setNote('') // la question part",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ]
+]

@@ -1,0 +1,83 @@
+[
+ [
+  "A1 gratitudes partagées",
+  "src/share.ts",
+  "s.prayers.filter(x => x.k !== 'g').map(",
+  "s.prayers.map(",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A2 profil enregistré : accueil guidé repris",
+  "src/lib.ts",
+  "if (o.v === 1 || V.isObj(out.profile))",
+  "if (o.v === 1)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A3 v1 : accueil guidé repris",
+  "src/lib.ts",
+  "if (o.v === 1 || V.isObj(out.profile))",
+  "if (V.isObj(out.profile))",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A4 schéma : type de prière libre",
+  "src/lib.ts",
+  "k: V.opt(V.lit('g')) }), 1000)",
+  "k: V.opt(V.str(5)) }), 1000)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A5 schéma : plus de 1 000 sujets",
+  "src/lib.ts",
+  "k: V.opt(V.lit('g')) }), 1000)",
+  "k: V.opt(V.lit('g')) }), 100000)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A6 schéma : date du verset libre",
+  "src/lib.ts",
+  "ui: V.obj({ onboard: V.bool, verseDay: V.nul(V.day), covers: V.bool })",
+  "ui: V.obj({ onboard: V.bool, verseDay: V.nul(V.str(40)), covers: V.bool })",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A7 liste Femme inversée",
+  "src/lib.ts",
+  "(s.profile.g === 'F' ? VF : VM)",
+  "(s.profile.g === 'F' ? VM : VF)",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A8 indice du verset hors liste",
+  "src/lib.ts",
+  "return l[i % l.length]",
+  "return l[i % (l.length + 1)] ?? l[0]",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "A9 NEVER_SHARED sans gratitudes",
+  "src/share.ts",
+  "  'Vos gratitudes : le mur de prières les garde sur l’appareil, quels que soient vos réglages de partage.',\n",
+  "",
+  [
+   "@audit"
+  ]
+ ]
+]

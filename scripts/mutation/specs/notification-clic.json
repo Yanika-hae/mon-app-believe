@@ -1,0 +1,137 @@
+[
+ [
+  "N1 notification non fermée",
+  "public/sw-notify.js",
+  "  event.notification.close()\n",
+  "",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N2 fenêtres pas encore contrôlées ignorées",
+  "public/sw-notify.js",
+  "includeUncontrolled: true",
+  "includeUncontrolled: false",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N3 tous types de clients",
+  "public/sw-notify.js",
+  "type: 'window'",
+  "type: 'all'",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N4 première fenêtre quelle que soit son origine",
+  "public/sw-notify.js",
+  "all.find(c => new URL(c.url).origin === self.location.origin)",
+  "all[0]",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N5 navigation non attendue",
+  "public/sw-notify.js",
+  "await mine.navigate(url)",
+  "mine.navigate(url)",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N6 navigation refusée non rattrapée",
+  "public/sw-notify.js",
+  "try { if ('navigate' in mine) await mine.navigate(url) } catch { /* navigation refusée : on se contente de la mettre au premier plan */ }",
+  "if ('navigate' in mine) await mine.navigate(url)",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N8 pas de mise au premier plan",
+  "public/sw-notify.js",
+  "return mine.focus()",
+  "return undefined",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N9 pas d’ouverture d’une fenêtre",
+  "public/sw-notify.js",
+  "return self.clients.openWindow(url)",
+  "return undefined",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N10 adresse extérieure acceptée",
+  "public/sw-notify.js",
+  "if (u.origin === self.location.origin) return u.href",
+  "return u.href",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N11 adresse par défaut : accueil",
+  "public/sw-notify.js",
+  "const HOME = '/#/9'",
+  "const HOME = '/'",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N12 adresse non texte acceptée",
+  "public/sw-notify.js",
+  "data && typeof data.url === 'string' ? data.url : HOME",
+  "data && data.url ? data.url : HOME",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N13 durée de vie non prolongée",
+  "public/sw-notify.js",
+  "event.waitUntil((async () => {",
+  "void ((async () => {",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N14 fenêtres d’un autre site pilotées",
+  "public/sw-notify.js",
+  "new URL(c.url).origin === self.location.origin)",
+  "new URL(c.url).origin !== self.location.origin)",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N15 base de l’adresse par défaut",
+  "public/sw-notify.js",
+  "new URL(HOME, self.location.origin).href",
+  "new URL(HOME, 'https://autre.example').href",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ],
+ [
+  "N16 adresse de la notification ignorée",
+  "public/sw-notify.js",
+  "data && typeof data.url === 'string' ? data.url : HOME",
+  "HOME",
+  [
+   "src/swnotify.test.tsx"
+  ]
+ ]
+]

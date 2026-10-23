@@ -1,0 +1,92 @@
+[
+ [
+  "L3 légal : destination du son non dite",
+  "src/LegalPage.tsx",
+  "le son est envoyé à Google (Chrome) ou à Apple (Safari) pour être transcrit",
+  "le son est transcrit",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "L4 légal : principe sans la dictée",
+  "src/LegalPage.tsx",
+  "pour l’IA, les photos et la dictée vocale, sans votre accord préalable",
+  "pour l’IA et les photos, sans votre accord préalable",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "L5 légal : destinataire Apple oublié",
+  "src/LegalPage.tsx",
+  "Apple (reconnaissance vocale de Safari si vous dictez), ",
+  "",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "L6 légal : rappels envoyés à un tiers",
+  "src/LegalPage.tsx",
+  "remplacé par un texte neutre en mode discret ou sous l’écran du PIN</td><td>Non</td>",
+  "remplacé par un texte neutre en mode discret ou sous l’écran du PIN</td><td>Oui</td>",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "L7 légal : rappels via un serveur",
+  "src/LegalPage.tsx",
+  "sans serveur de notifications",
+  "avec un serveur de notifications",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "L8 légal : dictée conservée",
+  "src/LegalPage.tsx",
+  "Believe ne garde aucun son.",
+  "Believe garde le son.",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "S1 statut : dictée « non implémentée »",
+  "src/App.tsx",
+  "Configuration requise : GEMINI_API_KEY sur le serveur.",
+  "Configuration requise : GEMINI_API_KEY sur le serveur. Reconnaissance vocale non implémentée.",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "S2 statut : limite de la dictée oubliée",
+  "src/App.tsx",
+  "La dictée n’a pas été essayée avec une vraie voix ni sur iPhone ; ",
+  "",
+  [
+   "src/dictation.test.tsx"
+  ]
+ ],
+ [
+  "S3 statut : rappels sans notifications",
+  "src/App.tsx",
+  "Pas de synchronisation automatique (elle n’est jamais annoncée).",
+  "Pas de synchronisation automatique ni de notifications système.",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ],
+ [
+  "S4 statut : limite des rappels oubliée",
+  "src/App.tsx",
+  "Un rappel n’est donné que pendant que Believe est ouvert (pas de notification envoyée par un serveur) : application fermée, seul l’export .ics fait alerter votre agenda. ",
+  "",
+  [
+   "src/reminders.test.tsx"
+  ]
+ ]
+]

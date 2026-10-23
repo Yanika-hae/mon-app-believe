@@ -1,0 +1,112 @@
+[
+ [
+  "RE1 toujours au premier plan",
+  "src/Reminders.tsx",
+  "const front = document.visibilityState === 'visible' && !lref.current",
+  "const front = true",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE2 titre de la tâche dans la notification masquée",
+  "src/Reminders.tsx",
+  "masked ? 'Believe : rappel' : t.t",
+  "t.t",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE3 clic sans adresse",
+  "src/remind.ts",
+  "data: { url: '/#/9' }",
+  "data: {}",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE4 service worker sans le script du clic",
+  "vite.config.ts",
+  ", importScripts: ['sw-notify.js']",
+  "",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE5 zone annoncée sans rôle",
+  "src/Reminders.tsx",
+  "<div role=\"status\" aria-live=\"polite\">",
+  "<div aria-live=\"polite\">",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE6 rappel du premier plan jamais marqué",
+  "src/Reminders.tsx",
+  "mark(list); return }",
+  "return }",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE7 icône absente",
+  "src/remind.ts",
+  "icon: '/icon-192.png'",
+  "icon: '/absente.png'",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE8 script du clic sans écouteur",
+  "public/sw-notify.js",
+  "self.addEventListener('notificationclick'",
+  "self.addEventListener('click'",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE9 message d’activation",
+  "src/Reminders.tsx",
+  "granted: 'Rappels activés. Les notifications du système sont autorisées.'",
+  "granted: 'Rappels activés.'",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE10 étiquette de la notification de test",
+  "src/Reminders.tsx",
+  "'Les rappels de tâches fonctionnent.', 'test')",
+  "'Les rappels de tâches fonctionnent.', 'autre')",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ],
+ [
+  "RE11 bandeau sans lien vers les tâches",
+  "src/Reminders.tsx",
+  "<a className=\"chip\" href=\"#/9\">Ouvrir les tâches</a>",
+  "",
+  [
+   "@e2e",
+   "^Rappels de tâches"
+  ]
+ ]
+]

@@ -1,0 +1,29 @@
+[
+ [
+  "T1 jours en heure locale",
+  "src/suivi.ts",
+  "return Date.UTC(y, m - 1, j) }",
+  "return new Date(y, m - 1, j).getTime() }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "T2 date longue sans UTC",
+  "src/suivi.ts",
+  "{ timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' }",
+  "{ day: 'numeric', month: 'long', year: 'numeric' }",
+  [
+   "@audit"
+  ]
+ ],
+ [
+  "T3 jour de semaine sans UTC",
+  "src/suivi.ts",
+  "{ timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' }",
+  "{ weekday: 'long', day: 'numeric', month: 'long' }",
+  [
+   "@audit"
+  ]
+ ]
+]
